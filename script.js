@@ -1,27 +1,35 @@
 "use sttict";
-const sumTwoSmallestNumbers = (...args) => {
-  // 1
-  let sortedArgs = args.sort((a, b) => a - b);
-  if (sortedArgs.length < 2) {
-    return console.error("Your set of date smaller then 2");
-  }
-  return sortedArgs[0] + sortedArgs[1];
-  //   let array = args;
-  //   const sortedArray = array.sort((a, b) => a - b);
-  //2
-  //   const firstElement = sortedArray[0];
-  //   const secondElement = sortedArray[1];
-  //   //3
-  //   const sum = firstElement + secondElement;
-  //   //4
-  //   return sum;
-};
-
-// const sumTwoSmallestNumbersShort = (array) => {
-//   const sortedArray = array.sort((a, b) => a - b);
-//   return sortedArray[0] + sortedArray[1];
+//1
+// const sumTwoSmallestNumbers = (...args) => {
+//   // 1
+//   let sortedArgs = args.sort((a, b) => a - b);
+//   if (sortedArgs.length < 2) {
+//     return console.error("Your set of date smaller then 2");
+//   }
+//   return sortedArgs[0] + sortedArgs[1];
 // };
 
-console.log(sumTwoSmallestNumbers(19, 5, 42, 2, 77)); // 7
-console.log(sumTwoSmallestNumbers(1, 3, 2)); // 3
-console.log(sumTwoSmallestNumbers(1)); // undefined и отдельный console.error("...")
+// console.log(sumTwoSmallestNumbers(19, 5, 42, 2, 77)); // 7
+// console.log(sumTwoSmallestNumbers(1, 3, 2)); // 3
+// console.log(sumTwoSmallestNumbers(1)); // undefined и отдельный console.error("...")
+
+//2
+
+function createCalculator(count) {
+  let a = count;
+  return function () {
+    return {
+      sum: () => (a = a + b),
+      mult: () => (a = a * b),
+      sub: () => (a = a - b),
+      div: () => (a = a / b),
+    };
+  };
+}
+
+const calc = createCalculator(10);
+
+console.log(calc.sum(5)); /// 15
+console.log(calc.mult(10)); // 150
+console.log(calc.sub(40)); // 110
+console.log(calc.div(10)); // 11
