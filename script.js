@@ -15,15 +15,14 @@
 
 //2
 
-function createCalculator(count) {
-  let a = count;
-  return function () {
-    return {
-      sum: () => (a = a + b),
-      mult: () => (a = a * b),
-      sub: () => (a = a - b),
-      div: () => (a = a / b),
-    };
+function createCalculator(firstValue) {
+  let count = firstValue;
+
+  return {
+    sum: (secondValue) => (count = count + secondValue),
+    mult: (secondValue) => (count = count * secondValue),
+    sub: (secondValue) => (count = count - secondValue),
+    div: (secondValue) => (count = count / secondValue),
   };
 }
 
